@@ -74,16 +74,7 @@ export default function ContactSection() {
             }}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-3 rounded-full bg-transparent border-slate-600 text-slate-300 hover:bg-teal-600 hover:text-white hover:border-teal-600 transition-all duration-300"
-              style={{
-                transform: "translateZ(0)",
-              }}
-            >
-              <span style={{ transform: "translateZ(5px)" }}>Download Resume</span>
-            </Button>
+            
           </motion.div>
         </motion.div>
 
@@ -93,7 +84,7 @@ export default function ContactSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-12 pt-8 border-t border-slate-700"
         >
-          <p className="text-slate-400">© 2024 John Doe. Crafted with passion and code.</p>
+          <p className="text-slate-400">© 2024 Rudraksha Bhatnagar.</p>
         </motion.div>
       </div>
     </section>
