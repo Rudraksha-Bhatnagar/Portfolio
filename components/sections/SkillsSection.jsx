@@ -51,20 +51,23 @@ export default function SkillsSection() {
 
   const getColorClasses = (color) => {
   const colorMap = {
-    emerald: "bg-emerald-600 hover:bg-emerald-700",
-    teal: "bg-teal-600 hover:bg-teal-700",
-    cyan: "bg-cyan-600 hover:bg-cyan-700",
-    indigo: "bg-indigo-600 hover:bg-indigo-700",
-    violet: "bg-violet-600 hover:bg-violet-700",
-    rose: "bg-rose-600 hover:bg-rose-700",
+    emerald: "text-[#db6b42]",
+    teal: "text-[#db6b42]",
+    cyan: "text-[#d6b07c]",
+    indigo: "text-[#d6b07c]",
+    violet: "text-[#a8a199]",
+    rose: "text-[#db6b42]",
+    orange: "text-[#db6b42]",
+    amber: "text-[#d6b07c]",
+    stone: "text-[#a8a199]",
   };
-  return colorMap[color] || "bg-gray-600 hover:bg-gray-700"; // fallback color
+  return colorMap[color] || "text-[#a8a199]"; // fallback color
 };
 
   return (
     <section
       ref={ref}
-      className="min-h-screen flex items-center py-20 px-4 bg-slate-900/50"
+      className="min-h-screen flex items-center py-20 px-4 bg-[#141210]"
       style={{ perspective: "1200px" }}
     >
       <div className="max-w-6xl mx-auto">
@@ -72,7 +75,7 @@ export default function SkillsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center mb-16 text-emerald-400"
+          className="text-4xl md:text-5xl font-serif text-center mb-16 text-[#db6b42] border-b border-[#282420] pb-6 max-w-2xl mx-auto"
         >
           What I Do
         </motion.h2>
@@ -94,45 +97,32 @@ export default function SkillsSection() {
               style={{ transformStyle: "preserve-3d" }}
             >
               <Card
-                className="h-full transition-all duration-500 border-slate-700/50 bg-slate-800/60 backdrop-blur-sm hover:bg-slate-800/80 relative overflow-hidden"
+                className="h-full transition-all duration-500 border-none bg-transparent hover:bg-[#1a1715] hover:border-l-2 hover:border-[#db6b42] relative overflow-hidden rounded-none"
                 style={{
                   transform: "translateZ(0)",
-                  boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.7)",
                 }}
               >
-                <CardContent className="p-8 text-center relative" style={{ transform: "translateZ(10px)" }}>
+                <CardContent className="p-8 text-left relative" style={{ transform: "translateZ(10px)" }}>
                   <motion.div
-                    className={`w-16 h-16 mx-auto mb-6 ${getColorClasses(skill.color)} rounded-2xl flex items-center justify-center transition-all duration-300 relative`}
+                    className={`w-12 h-12 mb-6 flex items-center transition-all duration-300 relative`}
                     whileHover={{
-                      rotateY: 180,
                       scale: 1.1,
                       transition: { duration: 0.6 },
                     }}
-                    style={{
-                      transform: "translateZ(20px)",
-                      transformStyle: "preserve-3d",
-                    }}
                   >
-                    <skill.icon className="h-8 w-8 text-white" style={{ transform: "translateZ(5px)" }} />
-                    {/* Back face of the icon */}
-                    <div
-                      className={`absolute inset-0 ${getColorClasses(skill.color)} rounded-2xl flex items-center justify-center`}
-                      style={{ transform: "rotateY(180deg) translateZ(5px)" }}
-                    >
-                      <div className="w-4 h-4 bg-white rounded-full animate-pulse" />
-                    </div>
+                    <skill.icon className={`h-8 w-8 ${getColorClasses(skill.color)}`} style={{ transform: "translateZ(5px)" }} />
                   </motion.div>
 
                   <motion.h3
-                    className="text-xl font-bold mb-4 text-white group-hover:text-emerald-300 transition-colors duration-300"
+                    className="text-xl font-serif mb-4 text-[#ebe9e6] group-hover:text-[#db6b42] transition-colors duration-300"
                     style={{ transform: "translateZ(15px)" }}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.02, x: 5 }}
                   >
                     {skill.name}
                   </motion.h3>
 
                   <motion.p
-                    className="text-slate-300 group-hover:text-slate-200 transition-colors duration-300"
+                    className="text-[#918a80] font-light transition-colors duration-300"
                     style={{ transform: "translateZ(10px)" }}
                   >
                     {skill.description}

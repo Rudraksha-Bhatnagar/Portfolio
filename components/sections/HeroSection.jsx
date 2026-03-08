@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-slate-950 px-4">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800" />
+    <section className="min-h-screen flex items-center justify-center relative bg-[#141210] px-4 overflow-hidden">
+      {/* Organic Background Texture */}
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }}></div>
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.1) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle at 30% 70%, rgba(219, 107, 66, 0.4) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
@@ -27,27 +27,27 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="mb-8"
         >
-          <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-            <span className="text-4xl font-bold text-white">RB</span>
+          <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-[#1c1917] flex items-center justify-center border border-[#282420]">
+            <span className="text-4xl font-serif text-[#db6b42]">RB</span>
           </div>
         </motion.div>
 
-        <motion.h1
+          <h1
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-6xl md:text-8xl font-bold mb-4 text-white"
+          className="text-6xl md:text-8xl font-serif mb-4 text-[#ebe9e6] tracking-tight"
         >
           Rudraksha Bhatnagar
-        </motion.h1>
+        </h1>
 
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-xl md:text-2xl text-slate-400 mb-8 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-[#a8a199] mb-8 max-w-2xl mx-auto font-light tracking-wide"
         >
-          Web & Android Developer
+          Software Developer
         </motion.p>
 
         <motion.div
@@ -55,9 +55,9 @@ export default function HeroSection() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
         >
-          <Button
+            <Button
             size="lg"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full transition-all duration-300"
+            className="bg-transparent border border-[#db6b42] text-[#db6b42] hover:bg-[#db6b42] hover:text-[#141210] px-8 py-3 rounded-none transition-all duration-300"
             onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
           >
             Explore My Work
@@ -66,48 +66,10 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Floating Elements */}
+      {/* Subtle organic light spread instead of floating orbs */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 left-10 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            rotate: [0, -5, 5, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-20 right-10 w-24 h-24 bg-teal-500/10 rounded-full blur-xl"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-          className="absolute top-1/2 left-1/4 w-12 h-12 bg-cyan-500/8 rounded-full blur-lg"
-        />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_top_right,rgba(219,107,66,0.03),transparent_50%)]" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_bottom_left,rgba(214,176,124,0.02),transparent_50%)]" />
       </div>
     </section>
   )

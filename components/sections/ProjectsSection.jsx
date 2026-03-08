@@ -41,11 +41,22 @@ export default function ProjectsSection() {
 }
 ];
 
+  const repos = [
+    { title: "Hotreload", url: "https://github.com/Rudraksha-Bhatnagar/Hotreload.git" },
+    { title: "UniGriev", url: "https://github.com/Rudraksha-Bhatnagar/23BCE1366_UniGriev.git" },
+    { title: "Multi-Agent System", url: "https://github.com/Rudraksha-Bhatnagar/Multi-Agent-system.git" },
+    { title: "PennyPin", url: "https://github.com/Rudraksha-Bhatnagar/PennyPin.git" },
+    { title: "Scale Pilot", url: "https://github.com/Rudraksha-Bhatnagar/Scale-Pilot.git" },
+    { title: "URL Shortner", url: "https://github.com/Rudraksha-Bhatnagar/URL-shortner.git" },
+    { title: "Timber", url: "https://github.com/Rudraksha-Bhatnagar/Timber.git" },
+    { title: "Tic Tac Toe", url: "https://github.com/Rudraksha-Bhatnagar/tic-tac-toe.git" }
+  ];
+
 
   return (
     <section
       ref={ref}
-      className="min-h-screen flex items-center py-20 px-4 bg-slate-950"
+      className="min-h-screen flex items-center py-20 px-4 bg-[#1a1715]"
       style={{ perspective: "1000px" }}
     >
       <div className="max-w-6xl mx-auto">
@@ -53,7 +64,7 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center mb-16 text-emerald-400"
+          className="text-4xl md:text-5xl font-serif text-center mb-16 text-[#db6b42] border-b border-[#282420] pb-6 max-w-2xl mx-auto"
         >
           Featured Projects
         </motion.h2>
@@ -75,17 +86,16 @@ export default function ProjectsSection() {
               style={{ transformStyle: "preserve-3d" }}
             >
               <Card
-                className="overflow-hidden transition-all duration-500 border-slate-700/50 bg-slate-800/60 backdrop-blur-sm hover:bg-slate-800/80 relative"
+                className="overflow-hidden transition-all duration-500 border border-[#282420] bg-transparent hover:bg-[#141210] relative rounded-none hover:shadow-[0_0_0_1px_rgba(219,107,66,0.5)]"
                 style={{
                   transform: "translateZ(0)",
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.8)",
                 }}
               >
                 
 
                 <CardContent className="p-6 relative" style={{ transform: "translateZ(20px)" }}>
                   <motion.h3
-                    className="text-xl font-bold mb-2 text-white group-hover:text-emerald-300 transition-colors duration-300"
+                    className="text-2xl font-serif mb-3 text-[#ebe9e6] group-hover:text-[#db6b42] transition-colors duration-300"
                     initial={{ opacity: 0, y: 10 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
@@ -93,7 +103,7 @@ export default function ProjectsSection() {
                     {project.title}
                   </motion.h3>
                   <motion.p
-                    className="text-slate-300 mb-4 group-hover:text-slate-200 transition-colors duration-300"
+                    className="text-[#a8a199] mb-6 font-light transition-colors duration-300"
                     initial={{ opacity: 0, y: 10 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
@@ -109,7 +119,7 @@ export default function ProjectsSection() {
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-emerald-900/40 text-emerald-300 rounded-full text-sm border border-emerald-700/50 transition-all duration-300"
+                        className="px-3 py-1 bg-[#282420]/30 text-[#d6b07c] font-mono text-xs border border-[#282420] transition-all duration-300 rounded"
                         style={{ transform: `translateZ(${5 + techIndex * 2}px)` }}
                       >
                         {tech}
@@ -126,11 +136,11 @@ export default function ProjectsSection() {
                       variant="outline"
                       size="sm"
                       onClick={()=>window.open(project.link)}
-                      className="w-full bg-transparent border-slate-600 text-slate-300 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-300"
+                      className="w-full bg-transparent border-b border-[#282420] border-t-0 border-l-0 border-r-0 rounded-none text-[#ebe9e6] hover:bg-transparent hover:text-[#db6b42] hover:border-[#db6b42] transition-colors duration-300 flex items-center justify-between px-0"
                     >
                       
-                      View Project
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                      <span>View Project</span>
+                      <ExternalLink className="h-4 w-4" />
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -138,6 +148,30 @@ export default function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           animate={isInView ? { opacity: 1, y: 0 } : {}}
+           transition={{ duration: 0.8, delay: 0.4 }}
+           className="mt-20"
+        >
+          <h3 className="text-3xl font-serif text-center mb-10 text-[#a8a199]">More Open Source Repositories</h3>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {repos.map((repo, i) => (
+              <motion.div
+                key={repo.title}
+                whileHover={{ x: 5 }}
+                className="bg-transparent border-l-2 border-[#282420] p-4 hover:border-[#db6b42] transition-all cursor-pointer group"
+                onClick={() => window.open(repo.url)}
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <h4 className="font-serif text-[#ebe9e6] group-hover:text-[#db6b42] transition-colors">{repo.title}</h4>
+                  <ExternalLink className="h-4 w-4 text-[#a8a199] opacity-0 group-hover:opacity-100 transition-all group-hover:text-[#db6b42]" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
